@@ -52,7 +52,8 @@ data
     });
   })
   .catch((error) => {
-    message.innerText = "No server Found";
+    message.innerText = "No server Found :(";
+    message.style.color="red"
     message.className = "message";
     document.body.appendChild(message);
   });
