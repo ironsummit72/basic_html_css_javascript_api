@@ -12,9 +12,10 @@ cursor: pointer;
 }
 .container{
     height: 100px;
-  
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
 }
 .userInput{
     width: 290px;
