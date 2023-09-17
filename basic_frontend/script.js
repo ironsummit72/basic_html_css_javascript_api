@@ -39,19 +39,23 @@ async function submit() {
 
 const message = document.createElement("h1"); // ? message if no items found
 // * create list
-data.then((value) => {
-  if (value.length === 0) {
-    message.innerText = "No items";
+data
+  .then((value) => {
+    if (value.length === 0) {
+      message.innerText = "No items";
+      message.className = "message";
+      document.body.appendChild(message);
+    }
+
+    value.forEach((element) => {
+      h1(element.driver);
+    });
+  })
+  .catch((error) => {
+    message.innerText = "No server Found";
     message.className = "message";
     document.body.appendChild(message);
-  } else {
-    message.style.display = "none";
-  }
-
-  value.forEach((element) => {
-    h1(element.driver);
   });
-});
 
 function h1(text) {
   const deleteBtn = document.createElement("button");
@@ -79,7 +83,7 @@ function h1(text) {
     });
     let response = data.json();
     response.then((data) => {
-      div.style.display = "none";
+      div.remove();
     });
   });
 }
